@@ -7,46 +7,77 @@ public class CatBehaviour : MonoBehaviour
 {
     Rigidbody2D rb;
     public float moveSpeed = 5f;
-    bool isFacingRight = false;
+    public float jumpPower;
+    bool isFacingRight = true;
     Animator animator;
     float horizontalInput;
-    public float jumpPower = 5f;
-    bool isGrounded = false;
 
+    private bool isGrounded = false;
+    public Transform feetPos;
+    public float checkRadius;
+    public LayerMask groundLayer;
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool isJumping;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+       
 
         FlipSprite();
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, groundLayer);
+        animator.SetBool("isJumping", !isGrounded);
+
+        
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            isGrounded = false;
+            rb.velocity = Vector2.up * jumpPower;
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
             animator.SetBool("isJumping", !isGrounded);
         }
-       
+
+        if (Input.GetButton("Jump") && isJumping == true)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpPower;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+           
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
     }
 
     private void FixedUpdate()
     {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+
+        
         animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
     void FlipSprite()
     {
-        if(isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 ls = transform.localScale;
@@ -60,5 +91,9 @@ public class CatBehaviour : MonoBehaviour
         isGrounded = true;
         animator.SetBool("isJumping", !isGrounded);
     }
+
+
+
+
 
 }
