@@ -498,7 +498,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 273fdcf99d9280845ba70b6d8757f875, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -611,14 +611,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd654656e095ef4a9073532cbe21ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpPower: 10
-  feetPos: {fileID: 2025955917}
-  checkRadius: 0.3
+  groundCheck: {fileID: 2025955917}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  jumpTime: 0.35
+  moveSpeed: 4
+  minJumpPower: 5
+  maxJumpPower: 15
+  chargeSpeed: 10
 --- !u!61 &122706758
 BoxCollider2D:
   m_ObjectHideFlags: 0
