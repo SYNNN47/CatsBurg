@@ -77,6 +77,7 @@ public class CatBehaviour : MonoBehaviour
                 // Charge jump power up to the max value
                 currentJumpPower += chargeSpeed * Time.deltaTime;
                 currentJumpPower = Mathf.Clamp(currentJumpPower, minJumpPower, maxJumpPower);
+                rb.velocity = new Vector2(0, 0);
             }
 
             if (Input.GetButtonUp("Jump") && isChargingJump)
