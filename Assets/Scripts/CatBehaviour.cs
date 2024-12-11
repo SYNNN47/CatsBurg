@@ -82,8 +82,8 @@ public class CatBehaviour : MonoBehaviour
                 // Release jump
                 rb.velocity = new Vector2(rb.velocity.x, currentJumpPower);
                 isChargingJump = false;
-                animator.SetBool("isChargingJump", false);
                 animator.SetBool("isJumping", true);
+                animator.SetBool("isChargingJump", false);
             }
         }
     }
