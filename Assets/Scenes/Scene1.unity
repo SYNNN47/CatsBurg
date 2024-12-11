@@ -616,7 +616,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   moveSpeed: 4
-  minJumpPower: 5
+  minJumpPower: 8
   maxJumpPower: 15
   chargeSpeed: 10
 --- !u!61 &122706758
