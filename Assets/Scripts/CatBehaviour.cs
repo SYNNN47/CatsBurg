@@ -65,6 +65,8 @@ public class CatBehaviour : MonoBehaviour
                 // Start charging jump
                 isChargingJump = true;
                 currentJumpPower = minJumpPower;
+
+                animator.SetBool("isChargingJump", true);
             }
 
             if (Input.GetButton("Jump") && isChargingJump)
@@ -80,6 +82,7 @@ public class CatBehaviour : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, currentJumpPower);
                 isChargingJump = false;
                 animator.SetBool("isJumping", true);
+                animator.SetBool("isChargingJump", false);
             }
         }
     }
