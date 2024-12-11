@@ -67,6 +67,7 @@ public class CatBehaviour : MonoBehaviour
                 currentJumpPower = minJumpPower;
 
                 animator.SetBool("isChargingJump", true);
+                Debug.Log("true ini mah");
             }
 
             if (Input.GetButton("Jump") && isChargingJump)
@@ -81,8 +82,8 @@ public class CatBehaviour : MonoBehaviour
                 // Release jump
                 rb.velocity = new Vector2(rb.velocity.x, currentJumpPower);
                 isChargingJump = false;
-                animator.SetBool("isJumping", true);
                 animator.SetBool("isChargingJump", false);
+                animator.SetBool("isJumping", true);
             }
         }
     }
