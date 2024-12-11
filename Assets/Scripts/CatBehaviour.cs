@@ -69,6 +69,7 @@ public class CatBehaviour : MonoBehaviour
                 currentJumpPower = minJumpPower;
 
                 animator.SetBool("isChargingJump", true);
+                Debug.Log("true ini mah");
             }
 
             if (Input.GetButton("Jump") && isChargingJump)
