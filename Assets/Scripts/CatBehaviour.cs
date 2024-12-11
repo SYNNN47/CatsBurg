@@ -19,6 +19,8 @@ public class CatBehaviour : MonoBehaviour
     public float chargeSpeed = 10f;    // How quickly jump power charges
 
     private bool isGrounded = false;
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
     private bool isChargingJump = false;
     private float currentJumpPower;
     private bool isFacingRight = true;
