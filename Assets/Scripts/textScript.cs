@@ -17,7 +17,7 @@ public class textScript : MonoBehaviour
     private bool nxtScene = false;
 
     private void Start()
-    {   
+    {
         // Mulai animasi teks
         StartCoroutine(ShowText("Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
     }
