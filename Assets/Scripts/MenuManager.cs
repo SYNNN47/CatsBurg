@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public void ToggleStart()
     {
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("Pre-Game Cut Scene");
     }
 
     public void QuitGame()
