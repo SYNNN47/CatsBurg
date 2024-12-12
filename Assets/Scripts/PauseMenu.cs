@@ -5,11 +5,13 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject volumeMenu;
     public bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        volumeMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,5 +47,15 @@ public class NewBehaviourScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void volumeMenuActive()
+    {
+        pauseMenu.SetActive(false ); 
+        volumeMenu.SetActive(true);
+    }
+    public void closeVolumeMenu()
+    {
+        volumeMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 }
