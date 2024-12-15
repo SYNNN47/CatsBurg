@@ -19,7 +19,15 @@ public class textScript : MonoBehaviour
     private void Start()
     {
         // Mulai animasi teks
-        StartCoroutine(ShowText("Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
+        if(SceneManager.GetActiveScene().name.Equals("Pre-Game Cut Scene"))
+        {
+            StartCoroutine(ShowText("Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("EndingScene"))
+        {
+            StartCoroutine(ShowText("uhh capeknya..."));
+        }
+
     }
 
     IEnumerator ShowText(string text)
@@ -37,30 +45,56 @@ public class textScript : MonoBehaviour
 
     public void showTextCutScene()
     {
-        if (!text1)
+        if (SceneManager.GetActiveScene().name.Equals("Pre-Game Cut Scene"))
         {
-            StartCoroutine(ShowText("Kamu bosan?? kenapa ga ikut aku aja!"));
-            text1 = true;
+            if (!text1)
+            {
+                StartCoroutine(ShowText("Kamu bosan?? kenapa ga ikut aku aja!"));
+                text1 = true;
+            }
+            else if (!text2)
+            {
+                StartCoroutine(ShowText("HAH?! emangnya kemana tujuan kita??"));
+                text2 = true;
+            }
+            else if (!text3)
+            {
+                StartCoroutine(ShowText("Udah... kamu ikut aku aja"));
+                text3 = true;
+            }
+            else if (!text4)
+            {
+                StartCoroutine(ShowText("EHH TUNGGU!!"));
+                text4 = true;
+            }
+            else if (!nxtScene)
+            {
+                SceneManager.LoadScene("Scene1");
+                nxtScene = true;
+            }
         }
-        else if (!text2)
+        else if (SceneManager.GetActiveScene().name.Equals("EndingScene"))
         {
-            StartCoroutine(ShowText("HAH?! emangnya kemana tujuan kita??"));
-            text2 = true;
-        }
-        else if (!text3)
-        {
-            StartCoroutine(ShowText("Udah... kamu ikut aku aja"));
-            text3 = true;
-        }
-        else if (!text4)
-        {
-            StartCoroutine(ShowText("EHH TUNGGU!!"));
-            text4 = true;
-        }
-        else if (!nxtScene)
-        {
-            SceneManager.LoadScene("Scene1");
-            nxtScene = true;
+            if (!text1)
+            {
+                StartCoroutine(ShowText("Akhirnya kamu sampai juga, bagaimana pemandangan disini???"));
+                text1 = true;
+            }
+            else if (!text2)
+            {
+                StartCoroutine(ShowText("woahhhhhh...menakjubkan, seperti poster dikamar majikanku"));
+                text2 = true;
+            }
+            else if (!text3)
+            {
+                StartCoroutine(ShowText("nikmatilah..."));
+                text3 = true;
+            }
+            else if (!nxtScene)
+            {
+                SceneManager.LoadScene("Main Menu");
+                nxtScene = true;
+            }
         }
     }
 }

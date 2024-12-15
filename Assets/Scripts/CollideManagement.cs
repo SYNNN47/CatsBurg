@@ -23,6 +23,9 @@ public class CollideManagement : MonoBehaviour
             Debug.Log("Game Over");
             SceneManager.LoadScene("GameOverScene");
         }
-
+        if (collision.CompareTag("birdoAtas"))
+        {
+            SceneManager.LoadScene("EndingScene");
+        }
     }
 }
