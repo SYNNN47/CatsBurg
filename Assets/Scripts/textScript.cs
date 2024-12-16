@@ -21,11 +21,11 @@ public class textScript : MonoBehaviour
         // Mulai animasi teks
         if(SceneManager.GetActiveScene().name.Equals("Pre-Game Cut Scene"))
         {
-            StartCoroutine(ShowText("Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
+            StartCoroutine(ShowText("K: Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
         }
         else if (SceneManager.GetActiveScene().name.Equals("EndingScene"))
         {
-            StartCoroutine(ShowText("uhh capeknya..."));
+            StartCoroutine(ShowText("K: uhh capeknya..."));
         }
 
     }
@@ -49,22 +49,22 @@ public class textScript : MonoBehaviour
         {
             if (!text1)
             {
-                StartCoroutine(ShowText("Kamu bosan?? kenapa ga ikut aku aja!"));
+                StartCoroutine(ShowText("B: Kamu bosan?? kenapa ga ikut aku aja!"));
                 text1 = true;
             }
             else if (!text2)
             {
-                StartCoroutine(ShowText("HAH?! emangnya kemana tujuan kita??"));
+                StartCoroutine(ShowText("K: HAH?! emangnya kemana tujuan kita??"));
                 text2 = true;
             }
             else if (!text3)
             {
-                StartCoroutine(ShowText("Udah... kamu ikut aku aja"));
+                StartCoroutine(ShowText("B: Udah... kamu ikut aku aja"));
                 text3 = true;
             }
             else if (!text4)
             {
-                StartCoroutine(ShowText("EHH TUNGGU!!"));
+                StartCoroutine(ShowText("K: EHH TUNGGU!!"));
                 text4 = true;
             }
             else if (!nxtScene)
@@ -77,17 +77,17 @@ public class textScript : MonoBehaviour
         {
             if (!text1)
             {
-                StartCoroutine(ShowText("Akhirnya kamu sampai juga, bagaimana pemandangan disini???"));
+                StartCoroutine(ShowText("B: Akhirnya kamu sampai juga, bagaimana pemandangan disini???"));
                 text1 = true;
             }
             else if (!text2)
             {
-                StartCoroutine(ShowText("woahhhhhh...menakjubkan, seperti poster dikamar majikanku"));
+                StartCoroutine(ShowText("K: woahhhhhh...menakjubkan, seperti poster dikamar majikanku"));
                 text2 = true;
             }
             else if (!text3)
             {
-                StartCoroutine(ShowText("nikmatilah..."));
+                StartCoroutine(ShowText("B: nikmatilah..."));
                 text3 = true;
             }
             else if (!nxtScene)
