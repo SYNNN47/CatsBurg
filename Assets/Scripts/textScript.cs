@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class textScript : MonoBehaviour
 {
@@ -16,12 +17,18 @@ public class textScript : MonoBehaviour
     private bool text4 = false;
     private bool nxtScene = false;
 
+    public Image image;
+    public Sprite newSprite1;
+    public Sprite newSprite2;
+
+
     private void Start()
     {
         // Mulai animasi teks
         if(SceneManager.GetActiveScene().name.Equals("Pre-Game Cut Scene"))
         {
             StartCoroutine(ShowText("K: Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
+            image.sprite = newSprite1;
         }
         else if (SceneManager.GetActiveScene().name.Equals("EndingScene"))
         {
@@ -50,21 +57,25 @@ public class textScript : MonoBehaviour
             if (!text1)
             {
                 StartCoroutine(ShowText("B: Kamu bosan?? kenapa ga ikut aku aja!"));
+                image.sprite = newSprite2;
                 text1 = true;
             }
             else if (!text2)
             {
                 StartCoroutine(ShowText("K: HAH?! emangnya kemana tujuan kita??"));
+                image.sprite = newSprite1;
                 text2 = true;
             }
             else if (!text3)
             {
                 StartCoroutine(ShowText("B: Udah... kamu ikut aku aja"));
+                image.sprite = newSprite2;
                 text3 = true;
             }
             else if (!text4)
             {
                 StartCoroutine(ShowText("K: EHH TUNGGU!!"));
+                image.sprite = newSprite1;
                 text4 = true;
             }
             else if (!nxtScene)
