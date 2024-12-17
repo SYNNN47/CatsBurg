@@ -18,6 +18,7 @@ public class textScript : MonoBehaviour
     private bool nxtScene = false;
 
     public Image image;
+    //public Image image2;
     public Sprite newSprite1;
     public Sprite newSprite2;
 
@@ -27,12 +28,13 @@ public class textScript : MonoBehaviour
         // Mulai animasi teks
         if(SceneManager.GetActiveScene().name.Equals("Pre-Game Cut Scene"))
         {
-            StartCoroutine(ShowText("K: Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
+            StartCoroutine(ShowText("Hey Burdy, aku bosan... dengan lingkungan ini, pasti enak kalo jadi kamu bisa terbang kemana aja..."));
             image.sprite = newSprite1;
         }
         else if (SceneManager.GetActiveScene().name.Equals("EndingScene"))
         {
             StartCoroutine(ShowText("K: uhh capeknya..."));
+            image.sprite = newSprite1;
         }
 
     }
@@ -56,25 +58,25 @@ public class textScript : MonoBehaviour
         {
             if (!text1)
             {
-                StartCoroutine(ShowText("B: Kamu bosan?? kenapa ga ikut aku aja!"));
+                StartCoroutine(ShowText(" Kamu bosan?? kenapa ga ikut aku aja!"));
                 image.sprite = newSprite2;
                 text1 = true;
             }
             else if (!text2)
             {
-                StartCoroutine(ShowText("K: HAH?! emangnya kemana tujuan kita??"));
+                StartCoroutine(ShowText(" HAH?! emangnya kemana tujuan kita??"));
                 image.sprite = newSprite1;
                 text2 = true;
             }
             else if (!text3)
             {
-                StartCoroutine(ShowText("B: Udah... kamu ikut aku aja"));
+                StartCoroutine(ShowText("Udah... kamu ikut aku aja"));
                 image.sprite = newSprite2;
                 text3 = true;
             }
             else if (!text4)
             {
-                StartCoroutine(ShowText("K: EHH TUNGGU!!"));
+                StartCoroutine(ShowText(" EHH TUNGGU!!"));
                 image.sprite = newSprite1;
                 text4 = true;
             }
@@ -88,18 +90,21 @@ public class textScript : MonoBehaviour
         {
             if (!text1)
             {
-                StartCoroutine(ShowText("B: Akhirnya kamu sampai juga, bagaimana pemandangan disini???"));
+                StartCoroutine(ShowText(" Akhirnya kamu sampai juga, bagaimana pemandangan disini???"));
                 text1 = true;
+                image.sprite = newSprite2;
             }
             else if (!text2)
             {
-                StartCoroutine(ShowText("K: woahhhhhh...menakjubkan, seperti poster dikamar majikanku"));
+                StartCoroutine(ShowText(" woahhhhhh...menakjubkan, seperti poster dikamar majikanku"));
                 text2 = true;
+                image.sprite = newSprite1;
             }
             else if (!text3)
             {
-                StartCoroutine(ShowText("B: nikmatilah..."));
+                StartCoroutine(ShowText(" nikmatilah..."));
                 text3 = true;
+                image.sprite = newSprite2;
             }
             else if (!nxtScene)
             {
